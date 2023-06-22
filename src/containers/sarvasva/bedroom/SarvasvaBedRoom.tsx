@@ -3,15 +3,16 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import AudioPanel from '../../AudioPanel';
-import VideoPanel from '../../VideoPanel';
-import Lights from '../../Lights';
+import AudioPanel from './panels/AudioPanel';
+import VideoPanel from './panels/VideoPanel';
+import Lights from './panels/LightPanel';
 
 import IconButton from '@mui/material/IconButton';
 import Divider from '@mui/joy/Divider';
 import Stack from '@mui/joy/Stack';
 import Sheet from '@mui/joy/Sheet';
 import { styled } from '@mui/joy/styles';
+import LightPanel from './panels/LightPanel';
 
 const Item = styled(Sheet)(({ theme }) => ({
   backgroundColor:
@@ -57,7 +58,7 @@ function getTab(index: number) {
   };
 }
 
-export default function SarvasvaPanel() {
+export default function SarvasvaBedRoomPanel() {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
@@ -76,7 +77,7 @@ export default function SarvasvaPanel() {
       >
         <Item><AudioPanel /></Item>
         <Item><VideoPanel /></Item>
-        <Item><Lights /></Item>
+        <Item><LightPanel /></Item>
 
       </Stack>
 

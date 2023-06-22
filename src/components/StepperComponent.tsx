@@ -50,7 +50,7 @@ export default function Stepper({label, signalName, feedbackValueLabel} : Steppe
     else if(operation === '-') updatedValue =  currentValue-1;
 
     publishEvent("number", signalName, updatedValue);
-    setCurrentValue(updatedValue);
+    //setCurrentValue(updatedValue);
 
   };
     return (
@@ -73,9 +73,9 @@ export default function Stepper({label, signalName, feedbackValueLabel} : Steppe
           <Typography component="div" variant="h2">
             {currentValue}
           </Typography>
-          {feedbackValueLabel ? <Typography component="div">
+          {/* {feedbackValueLabel ? <Typography component="div">
             {feedbackValueLabel}
-          </Typography> : null}
+          </Typography> : null} */}
         </Card>
       </Grid>
       <Grid xs={3} sx={{padding: '20px'}}>

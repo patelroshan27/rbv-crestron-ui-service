@@ -17,7 +17,7 @@ import {
   useSubscribeSerial,
   useSubscribeDigital
 } from "@norgate-av/react-hooks";
-import LightProp from './LightProp';
+import LightProp from './props/LightProp';
 
 (window as any)["bridgeReceiveIntegerFromNative"] =
   bridgeReceiveIntegerFromNative;
@@ -29,45 +29,45 @@ import LightProp from './LightProp';
   bridgeReceiveObjectFromNative;
 
 
-  interface LightComponentProps {
-    label: string;
-    lightProps: LightProp[];
-  }
-  
+interface LightComponentProps {
+  label: string;
+  lightProps: LightProp[];
+}
 
-export default function Light({label, lightProps} : LightComponentProps) {
 
-    const handleClick = (signalName : string) => {
-      // Handle the click event here
-      console.log(' handleClick clicked!');
-      publishEvent("boolean", signalName, true); 
-      publishEvent("boolean", signalName, false); 
-    };
-  
-       return (
-      <Box sx={{ width: '100%' }}>
-        <FormLabel
-          id="projectpower-label"
-          sx={{
-            mb: 2,
-            fontWeight: 'xl',
-            textTransform: 'uppercase',
-            fontSize: 'xs',
-            letterSpacing: '0.15rem',
-          }}
-        >
+export default function Light({ label, lightProps }: LightComponentProps) {
+
+  const handleClick = (signalName: string) => {
+    // Handle the click event here
+    console.log(' handleClick clicked!');
+    publishEvent("boolean", signalName, true);
+    publishEvent("boolean", signalName, false);
+  };
+
+  return (
+    <Box sx={{ width: '100%' }}>
+      <FormLabel
+        id="projectpower-label"
+        sx={{
+          mb: 2,
+          fontWeight: 'xl',
+          textTransform: 'uppercase',
+          fontSize: 'xs',
+          letterSpacing: '0.15rem',
+        }}
+      >
         {label}
-        </FormLabel>
-        <Stack spacing={2} direction="row" sx={{ mb: 1 }} alignItems="center">
+      </FormLabel>
+      <Stack spacing={2} direction="row" sx={{ mb: 1 }} alignItems="center">
 
         {lightProps.map((lightProp) => (
-                  <Button variant="contained" sx={{ fontSize: 25 }} onClick={() => handleClick(lightProp.signalName)  } startIcon={<CgSmartHomeLight />}>
-        {lightProp.buttonName}
-        </Button>
-      ))}
+          <Button variant="contained" sx={{ fontSize: 25 }} onClick={() => handleClick(lightProp.signalName)} startIcon={<CgSmartHomeLight />}>
+            {lightProp.buttonName}
+          </Button>
+        ))}
 
-        </Stack>
-  
-         </Box>
-      )
-  }
+      </Stack>
+
+    </Box>
+  )
+}

@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 //import App from './App';
-import SarvasvaPanel from './containers/sarvasva/bedroom/Sarvasva';
+import SarvasvaPanel from './containers/sarvasva/bedroom/SarvasvaBedRoom';
 import reportWebVitals from './reportWebVitals';
 import MainApp from './MainApp';
 

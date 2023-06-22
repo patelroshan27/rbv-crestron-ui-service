@@ -17,10 +17,7 @@ import {
   bridgeReceiveObjectFromNative,
 } from "@crestron/ch5-crcomlib";
 
-import Light from '../components/LightComponent';
-import CeilingLight from './CeilingLight';
-import SpotLight from './SpotLight';
-import NightLight from './NightLight';
+import LightComponent from '../../../../components/LightComponent';
 
 
 import { publishEvent } from "@crestron/ch5-crcomlib";
@@ -29,7 +26,7 @@ import {
   useSubscribeSerial,
   useSubscribeDigital
 } from "@norgate-av/react-hooks";
-import LightProp from '../components/LightProp';
+import LightProp from '../../../../components/props/LightProp';
 
 (window as any)["bridgeReceiveIntegerFromNative"] =
   bridgeReceiveIntegerFromNative;
@@ -53,11 +50,12 @@ const Item = styled(Sheet)(({ theme }) => ({
 
 
 export default function VideoPanel() {
-  
-  const lightProps : LightProp[] = [{buttonName: 'High', signalName : '1' }, {buttonName: 'Medium', signalName : '2' }, {buttonName: 'Low', signalName : '3' }, {buttonName: 'Off', signalName : '4' } ];
-  const ceilingLightProps : LightProp[] = [{buttonName: 'High', signalName : '5' }, {buttonName: 'Medium', signalName : '6' }, {buttonName: 'Low', signalName : '7' }, {buttonName: 'Off', signalName : '8' } ];
-  const spotProps : LightProp[] = [{buttonName: 'High', signalName : '9' }, {buttonName: 'Medium', signalName : '10' }, {buttonName: 'Low', signalName : '11' }, {buttonName: 'Off', signalName : '12' } ];
-  const nightProps : LightProp[] = [{buttonName: 'On', signalName : '13' }, {buttonName: 'Off', signalName : '14' } ];
+
+  const lightProps: LightProp[] = [{ buttonName: 'High', signalName: '1' }, { buttonName: 'Medium', signalName: '2' }, { buttonName: 'Low', signalName: '3' }, { buttonName: 'Off', signalName: '4' }];
+  const ceilingLightProps: LightProp[] = [{ buttonName: 'High', signalName: '5' }, { buttonName: 'Medium', signalName: '6' }, { buttonName: 'Low', signalName: '7' }, { buttonName: 'Off', signalName: '8' }];
+  const spotProps: LightProp[] = [{ buttonName: 'High', signalName: '9' }, { buttonName: 'Medium', signalName: '10' }, { buttonName: 'Low', signalName: '11' }, { buttonName: 'Off', signalName: '12' }];
+  const nightProps: LightProp[] = [{ buttonName: 'On', signalName: '13' }, { buttonName: 'Off', signalName: '14' }];
+
   return (
     <Box sx={{ width: '100%' }}>
       <Stack
@@ -65,10 +63,10 @@ export default function VideoPanel() {
         spacing={0}
         justifyContent="center"
       >
-        <Item><Light label='Light' lightProps={lightProps} ></Light></Item>
-        <Item><Light label='Ceiling Light' lightProps={ceilingLightProps} ></Light></Item>
-        <Item><Light label='Spot Light' lightProps={spotProps} ></Light></Item>
-        <Item><Light label='Night Light' lightProps={nightProps} ></Light></Item>
+        <Item><LightComponent label='Light' lightProps={lightProps} ></LightComponent></Item>
+        <Item><LightComponent label='Ceiling Light' lightProps={ceilingLightProps} ></LightComponent></Item>
+        <Item><LightComponent label='Spot Light' lightProps={spotProps} ></LightComponent></Item>
+        <Item><LightComponent label='Night Light' lightProps={nightProps} ></LightComponent></Item>
 
         {/* <Item><Curtain></Curtain></Item> */}
         {/* <Item><HVAC></HVAC></Item> */}
