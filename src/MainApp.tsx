@@ -4,7 +4,6 @@ import Box from '@mui/material/Box';
 import { useTheme, ThemeProvider, createTheme } from '@mui/material/styles';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
-import SarvasvaPanel from './containers/sarvasva/bedroom/Sarvasva';
 import App from './App';
 const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
 

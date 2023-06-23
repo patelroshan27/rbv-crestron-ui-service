@@ -2,13 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 //import App from './App';
-import SarvasvaPanel from './containers/sarvasva/bedroom/SarvasvaBedRoom';
+import SarvasvaBedRoomPanel from './containers/sarvasva/bedroom/SarvasvaBedRoom';
 import reportWebVitals from './reportWebVitals';
 import MainApp from './MainApp';
 
 ReactDOM.render(
   <React.StrictMode>
-    <SarvasvaPanel/>
+    <SarvasvaBedRoomPanel/>
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -36,6 +36,13 @@ import SourceSelectionProp from './props/SourceSelectionProp';
   
 
 export default function SourceSelectionComponent({ label, sourceSelectionProps }: SourceSelectionProps) {
+
+  const handleSourceChanged = (signalName: string) => {
+    // Handle the click event here
+    console.log(' handleSourceChanged clicked!');
+    publishEvent("number", signalName, 1);
+  };
+
     return (
       <Box sx={{ width: 300 }}>
         <FormLabel
@@ -70,6 +77,7 @@ export default function SourceSelectionComponent({ label, sourceSelectionProps }
                 label={`${sourceSelectionProp.buttonName}`}
                 overlay
                 disableIcon
+                onChange={() => handleSourceChanged(sourceSelectionProp.signalName)}
                 value={sourceSelectionProp.buttonName}
                 slotProps={{
                   label: ({ checked }) => ({

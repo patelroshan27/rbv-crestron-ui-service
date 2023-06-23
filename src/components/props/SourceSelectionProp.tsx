@@ -1,6 +1,6 @@
-interface AudioSourceProp {
+interface SourceSelectionProp {
   buttonName: string;
   signalName: string
 }
 
-export default AudioSourceProp;
+export default SourceSelectionProp;
