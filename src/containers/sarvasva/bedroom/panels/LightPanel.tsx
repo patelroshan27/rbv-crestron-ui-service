@@ -1,15 +1,13 @@
 import * as React from 'react';
 import Box from '@mui/joy/Box';
-import FormLabel from '@mui/joy/FormLabel';
-import Radio from '@mui/joy/Radio';
-import RadioGroup from '@mui/joy/RadioGroup';
 import Sheet from '@mui/joy/Sheet';
 import Divider from '@mui/joy/Divider';
 import Stack from '@mui/joy/Stack';
+import Typography from '@mui/material/Typography';
+import Card from '@mui/material/Card';
+import Fab from '@mui/material/Fab';
+import Grid from '@mui/material/Grid';
 import { styled } from '@mui/joy/styles';
-import { MdHvac, MdCurtainsClosed, MdOutlineCurtains, MdOutlineCurtainsClosed } from 'react-icons/md';
-import { TbTemperaturePlus, TbTemperatureMinus } from 'react-icons/tb';
-import Button from '@mui/material/Button';
 import {
   bridgeReceiveIntegerFromNative,
   bridgeReceiveBooleanFromNative,
@@ -49,7 +47,7 @@ const Item = styled(Sheet)(({ theme }) => ({
 }));
 
 
-export default function VideoPanel() {
+export default function LightPanel() {
 
   const lightProps: LightProp[] = [{ buttonName: 'High', signalName: '1' }, { buttonName: 'Medium', signalName: '2' }, { buttonName: 'Low', signalName: '3' }, { buttonName: 'Off', signalName: '4' }];
   const ceilingLightProps: LightProp[] = [{ buttonName: 'High', signalName: '5' }, { buttonName: 'Medium', signalName: '6' }, { buttonName: 'Low', signalName: '7' }, { buttonName: 'Off', signalName: '8' }];
@@ -57,20 +55,19 @@ export default function VideoPanel() {
   const nightProps: LightProp[] = [{ buttonName: 'On', signalName: '13' }, { buttonName: 'Off', signalName: '14' }];
 
   return (
-    <Box sx={{ width: '100%' }}>
-      <Stack
-        divider={<Divider orientation="vertical" />}
-        spacing={0}
-        justifyContent="center"
-      >
-        <Item><LightComponent label='Light' lightProps={lightProps} ></LightComponent></Item>
-        <Item><LightComponent label='Ceiling Light' lightProps={ceilingLightProps} ></LightComponent></Item>
-        <Item><LightComponent label='Spot Light' lightProps={spotProps} ></LightComponent></Item>
-        <Item><LightComponent label='Night Light' lightProps={nightProps} ></LightComponent></Item>
-
-        {/* <Item><Curtain></Curtain></Item> */}
-        {/* <Item><HVAC></HVAC></Item> */}
-      </Stack>
-    </Box>
+    <Grid container spacing={0}>
+      <Grid xs={6}>
+        <Card >
+          <Item><LightComponent label='Light' lightProps={lightProps} ></LightComponent></Item>
+          <Item><LightComponent label='Ceiling Light' lightProps={ceilingLightProps} ></LightComponent></Item>
+        </Card>
+      </Grid>
+      <Grid xs={6}>
+        <Card >
+          <Item><LightComponent label='Spot Light' lightProps={spotProps} ></LightComponent></Item>
+          <Item><LightComponent label='Night Light' lightProps={nightProps} ></LightComponent></Item>
+        </Card>
+      </Grid>
+    </Grid>
   );
 }

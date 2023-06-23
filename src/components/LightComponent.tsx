@@ -18,6 +18,7 @@ import {
   useSubscribeDigital
 } from "@norgate-av/react-hooks";
 import LightProp from './props/LightProp';
+import RadioGroup from '@mui/joy/RadioGroup';
 
 (window as any)["bridgeReceiveIntegerFromNative"] =
   bridgeReceiveIntegerFromNative;
@@ -58,13 +59,18 @@ export default function Light({ label, lightProps }: LightComponentProps) {
       >
         {label}
       </FormLabel>
-      <Stack spacing={2} direction="row" sx={{ mb: 1 }} alignItems="center">
-
+      <Stack spacing={2} sx={{ mb: 1 }} alignItems="center">
+      <RadioGroup
+          aria-labelledby="label"
+          size="lg"
+          sx={{ gap: 1.5 }}
+        >
         {lightProps.map((lightProp) => (
           <Button variant="contained" sx={{ fontSize: 25 }} onClick={() => handleClick(lightProp.signalName)} startIcon={<CgSmartHomeLight />}>
             {lightProp.buttonName}
           </Button>
         ))}
+        </RadioGroup>
 
       </Stack>
 
